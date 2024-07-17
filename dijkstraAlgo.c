@@ -1,7 +1,6 @@
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
-
 int minDistance(int dist[], bool sptSet[], int V) {
     int min = INT_MAX, min_index;
 

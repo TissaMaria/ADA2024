@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX_NODES 100
-// Adjacency List Representation
+
 typedef struct Node {
     int vertex;
     struct Node* next;
 } Node;
 Node* adjList[MAX_NODES];
-// Visited Array to keep track of visited nodes
+
 int visited[MAX_NODES] = {0};
-// Stack to hold the topological order
+
 int stack[MAX_NODES];
 int top = -1;
 Node* createNode(int vertex) {
@@ -45,7 +45,7 @@ void topologicalSort() {
         }
     }
 
-    // Printing the topological order
+
     printf("Topological Order:\n");
     while (top != -1) {
         printf("%d ", stack[top--]);
@@ -54,18 +54,26 @@ void topologicalSort() {
 }
 
 int main() {
-    // Initialize the adjacency list
-    for (int i = 0; i < MAX_NODES; i++) {
+    int vertices, edges;
+    int start, end;
+
+    printf("Enter the number of vertices: ");
+    scanf("%d", &vertices);
+
+    for (int i = 0; i < vertices; i++) {
         adjList[i] = NULL;
+     
     }
 
-    // Add edges
-    addEdge(4,0);
-    addEdge(4,1);
-    addEdge(3,1);
-    addEdge(5,0);
-    addEdge(2,3);
-    addEdge(5,2);
+    printf("Enter the number of edges: ");
+    scanf("%d", &edges);
+
+    printf("Enter the edges (start end): \n");
+    for (int i = 0; i < edges; i++) {
+        scanf("%d %d", &start, &end);
+        addEdge(start, end);
+    }
+
     topologicalSort();
 
     return 0;
